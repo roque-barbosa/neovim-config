@@ -13,7 +13,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      vim.api.nvim_set_keymap("n", "<leader>gg", ":LazyGit<CR>", { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>G", ":LazyGit<CR>", { noremap = true })
     end,
   },
 }

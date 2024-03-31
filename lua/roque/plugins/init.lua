@@ -8,10 +8,6 @@ return {
     name = "plenary"
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-  },
-  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     config = true,

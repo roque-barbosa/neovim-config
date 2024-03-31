@@ -27,22 +27,22 @@ return {
   })
   vim.cmd("colorscheme catppuccin")
   end
-  },]]
-  --[[
-  {
+  }, ]]
+  --[[ {
   "morhetz/gruvbox",
   name = "gruvbox",
   config = function ()
   vim.cmd("colorscheme gruvbox")
   end
-  },]]
+  }, ]]
   {
     "Mofiqul/dracula.nvim",
     name = "dracula",
     config = function()
       require('dracula').setup({
         colors = {
-          bg = '#000000',
+          -- bg = '#000000',
+          bg = "#0b0d0f",-- 
           fg = "#F8F8F2",
           blue = "#9580FF",
           selection = "#44475A",

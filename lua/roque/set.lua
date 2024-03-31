@@ -1,12 +1,12 @@
 -- disable netrw at the very start of your init.lua
 --vim.g.loaded_netrw = 1
---vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwPlugin = 1
 
 
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 vim.bo.autoindent = true
 vim.opt.smartindent = true

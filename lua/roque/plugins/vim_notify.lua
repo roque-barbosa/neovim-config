@@ -1,5 +1,5 @@
 return {
-  {
+  --[[ {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
@@ -58,5 +58,5 @@ return {
         vim.api.nvim_win_set_config(win, { zindex = 100 })
       end,
     },
-  }
+  } ]]
 }

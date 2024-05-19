@@ -3,10 +3,10 @@ return {
   dependencies = {
     "plenary"
   },
-
+  keys = {},
   config = function()
     require('telescope').setup({
-     defaults = {
+      defaults = {
         -- configure to use ripgrep
         vimgrep_arguments = {
           "rg",
@@ -23,8 +23,13 @@ return {
         file_browser = {
           -- theme = "dracula",
           -- disables netrw and use telescope-file-browser in its place
-          hidden = true,
+          hidden = { file_browser = false, folder_browser = false },
           hijack_netrw = true,
+          quiet = true,
+          no_ignore = true,
+          follow_symlinks = true,
+          grouped = true,
+          files = true,
           -- mappings = {
           --   ["i"] = {
           --     -- your custom insert mode mappings
@@ -48,6 +53,7 @@ return {
     })
 
     local builtin = require('telescope.builtin')
+    vim.keymap.set("n", "<space>pv", ":Telescope file_browser<CR>")
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
     vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
     require("telescope").load_extension "file_browser"

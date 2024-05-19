@@ -1,5 +1,4 @@
 return {
-  --trhis is catachau
   "neovim/nvim-lspconfig",
   dependencies = {
     "williamboman/mason.nvim",
@@ -11,6 +10,7 @@ return {
     "hrsh7th/nvim-cmp",
     "L3MON4D3/cmp_luasnip",
     "j-hui/fidget.nvim",
+    "L3MON4D3/LuaSnip",
   },
   config = function ()
     require("mason").setup()
@@ -20,6 +20,7 @@ return {
         "rust_analyzer",
         "lua_ls",
         "eslint",
+        "cssls",
         "elixirls",
         "html",
         "jsonls",
@@ -30,24 +31,12 @@ return {
         "ruby_ls",
         "sqlls",
         "tsserver",
+        "gopls",
       },
       handlers = {
         function (server_name) --default handler
           require("lspconfig")[server_name].setup({})
         end,
-
-        ["lua_ls"] = function ()
-          local lspconfig = require("lspconfig")
-          lspconfig.lua_ls.setup({
-            settings = {
-              Lua = {
-                completion = {
-                  callSnippet = "Replace"
-                }
-              }
-            }
-          })
-        end
       },
     })
 
@@ -62,56 +51,41 @@ return {
           -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
       },
+
       window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
+
       mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-q>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<S-CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<C-CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
       }),
       sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        -- { name = 'vsnip' }, -- For vsnip users.
+        { name = "nvim_lsp" },
+        { name = "path" },
         { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
       }, {
-        { name = 'buffer' },
+        { name = "buffer" },
+      }),
+    })
+    vim.keymap.set("n", "gD", function ()
+      require("telescope.builtin").lsp_definitions({
+        reuse_win = false,
       })
-    })
-
-    -- Set configuration for specific filetype.
-    cmp.setup.filetype('gitcommit', {
-      sources = cmp.config.sources({
-        { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-      }, {
-        { name = 'buffer' },
-      })
-    })
-
-    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline({ '/', '?' }, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' }
-      }
-    })
-
-    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = 'path' }
-      }, {
-        { name = 'cmdline' }
-      })
-    })
-
-    -- vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+    end, { noremap = true, silent = true })
   end
 }

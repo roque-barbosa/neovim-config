@@ -7,9 +7,6 @@ return {
 
   config = function()
     require('lualine').setup({
-      options = {
-        theme = 'cyberdream'
-      },
       sections = {
         lualine_a = {
           {

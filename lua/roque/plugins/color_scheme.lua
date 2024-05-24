@@ -1,33 +1,80 @@
 return {
-  --[[ {
-  "catppuccin/nvim",
-  name = "catppuccin",
-  config = function ()
-  require("catppuccin").setup({
-  flavour = "mocha", -- latte, frappe, macchiato, mocha
-  background = { -- :h background
-  dark = "mocha",
+  {
+    "folke/tokyonight.nvim",
+    opts = {},
+    config = function ()
+      require("tokyonight").setup({
+        -- use the night style
+        style = "night",
+        -- disable italic for functions
+        styles = {
+          functions = {}
+        },
+        sidebars = { "qf", "vista_kind", "terminal", "packer" },
+        -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+        on_highlights = function(hl, c)
+          local prompt = "#2d3149"
+          hl.TelescopeNormal = {
+            bg = c.bg_dark,
+            fg = c.fg_dark,
+          }
+          hl.TelescopeBorder = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+          hl.TelescopePromptNormal = {
+            bg = prompt,
+          }
+          hl.TelescopePromptBorder = {
+            bg = prompt,
+            fg = prompt,
+          }
+          hl.TelescopePromptTitle = {
+            bg = prompt,
+            fg = prompt,
+          }
+          hl.TelescopePreviewTitle = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+          hl.TelescopeResultsTitle = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+        end,
+      })
+      vim.cmd("colorscheme tokyonight")
+    end
   },
-  color_overrides = {
-  mocha = {
-  base = "#000000",
-  mantle = "#000000",
-  crust = "#000000",
-  },
-  },
-  integrations = {
-  telescope = {
-  enabled = true,
-  },
-  dropbar = {
-  enabled = true,
-  color_mode = true,
-  },
-  },
-  })
-  vim.cmd("colorscheme catppuccin")
-  end
-  }, ]]
+  --   {
+  --     "catppuccin/nvim",
+  --     name = "catppuccin",
+  --     config = function ()
+  --       require("catppuccin").setup({
+  --         flavour = "mocha", -- latte, frappe, macchiato, mocha
+  --         background = { -- :h background
+  --         dark = "mocha",
+  --       },
+  --       color_overrides = {
+  --         mocha = {
+  --           base = "#000000",
+  --           mantle = "#000000",
+  --           crust = "#000000",
+  --         },
+  --       },
+  --       integrations = {
+  --         telescope = {
+  --           enabled = true,
+  --         },
+  --         dropbar = {
+  --           enabled = true,
+  --           color_mode = true,
+  --         },
+  --       },
+  --     })
+  --     vim.cmd("colorscheme catppuccin")
+  --   end
+  -- },
   --[[ {
   "ellisonleao/gruvbox.nvim",
   config = function ()
@@ -80,20 +127,4 @@ return {
   vim.cmd("colorscheme dracula")
   end
   }, ]]
-  {
-    "scottmckendry/cyberdream.nvim",
-    config = function ()
-      require("cyberdream").setup({
-        transparent = true,
-        italic_comments = true,
-        borderless_telescope = true,
-        colors = {
-          -- For a list of colors see `lua/cyberdream/colours.lua`
-          -- Example:
-          bg = "#000000",
-        },
-      })
-      vim.cmd("colorscheme cyberdream")
-    end
-  }
 }

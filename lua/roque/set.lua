@@ -6,7 +6,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.nu = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 vim.bo.autoindent = true
 vim.opt.smartindent = true
@@ -27,7 +27,7 @@ vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50

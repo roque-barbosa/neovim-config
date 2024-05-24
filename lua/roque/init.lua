@@ -1,4 +1,5 @@
 require("roque.remap")
+require("roque.autocmd")
 require("roque.set")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

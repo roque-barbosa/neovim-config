@@ -11,7 +11,6 @@ return {
           functions = {}
         },
         sidebars = { "qf", "vista_kind", "terminal", "packer" },
-        -- Change the "hint" color to the "orange" color, and make the "error" color bright red
         on_highlights = function(hl, c)
           local prompt = "#2d3149"
           hl.TelescopeNormal = {
@@ -42,6 +41,12 @@ return {
             fg = c.bg_dark,
           }
         end,
+        -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+        on_colors = function (colors)
+         colors.bg = "#282a36"
+         colors.bg_dark = "#313442"
+         colors.comment = "#7a8099"
+        end
       })
       vim.cmd("colorscheme tokyonight")
     end

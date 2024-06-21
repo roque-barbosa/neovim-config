@@ -12,6 +12,9 @@ return {
     "j-hui/fidget.nvim",
     "L3MON4D3/LuaSnip",
   },
+  opts = {
+    inlay_hints = { enabled = true },
+  },
   config = function ()
     require("mason").setup()
     require("fidget").setup()
@@ -21,14 +24,12 @@ return {
         "lua_ls",
         "eslint",
         "cssls",
-        "elixirls",
         "html",
         "jsonls",
         "jdtls",
         "tsserver",
         "marksman",
         "jedi_language_server",
-        "ruby_ls",
         "sqlls",
         "tsserver",
         "gopls",
@@ -142,10 +143,10 @@ return {
       },
 
       mapping = cmp.mapping.preset.insert({
-        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-w>"] = cmp.mapping.scroll_docs(4),
         ["<C-q>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.

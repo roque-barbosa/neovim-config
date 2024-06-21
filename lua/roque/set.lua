@@ -1,6 +1,6 @@
 -- disable netrw at the very start of your init.lua
---vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 
 vim.opt.clipboard = 'unnamedplus'
@@ -37,8 +37,6 @@ vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 vim.g.autoformat = true
 
 local opt = vim.opt
-
-opt.autowrite = true
 
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions

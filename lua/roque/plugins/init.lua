@@ -5,6 +5,10 @@ return {
     name = "web-devicons",
   },
   {
+    "unblevable/quick-scope",
+    name = "quick-scope",
+  },
+  {
     "nvim-lua/plenary.nvim",
     name = "plenary"
   },
@@ -26,4 +30,5 @@ return {
       require('colorizer').setup()
     end
   },
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 }

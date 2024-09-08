@@ -1,7 +1,8 @@
 -- disable netrw at the very start of your init.lua
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
-
+vim.g.netrw_liststyle = 3
+vim.g.netrw_banner = 0
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -10,6 +11,7 @@ vim.opt.relativenumber = true
 
 vim.bo.autoindent = true
 vim.opt.smartindent = true
+vim.opt.breakindent = true
 
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -50,11 +52,13 @@ opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3 -- global statusline
 opt.list = true -- Show some invisible characters (tabs...
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.inccommand = 'split'
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
-opt.scrolloff = 4 -- Lines of context
+opt.scrolloff = 10 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent

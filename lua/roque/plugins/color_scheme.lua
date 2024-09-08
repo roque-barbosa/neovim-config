@@ -1,87 +1,88 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    opts = {},
-    config = function ()
-      require("tokyonight").setup({
-        -- use the night style
-        style = "night",
-        -- disable italic for functions
-        styles = {
-          functions = {}
-        },
-        sidebars = { "qf", "vista_kind", "terminal", "packer" },
-        on_highlights = function(hl, c)
-          local prompt = "#2d3149"
-          hl.TelescopeNormal = {
-            bg = c.bg_dark,
-            fg = c.fg_dark,
-          }
-          hl.TelescopeBorder = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopePromptNormal = {
-            bg = prompt,
-          }
-          hl.TelescopePromptBorder = {
-            bg = prompt,
-            fg = prompt,
-          }
-          hl.TelescopePromptTitle = {
-            bg = prompt,
-            fg = prompt,
-          }
-          hl.TelescopePreviewTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopeResultsTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-        end,
-        -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-        on_colors = function (colors)
-         colors.bg = "#0C0C0C"
-         colors.bg_dark = "#222831"
-         colors.comment = "#7a8099"
-         colors.green1 = "#B0EBB4"
-         colors.blue1 = "#7BD3EA"
-         colors.green = "#B5C18E"
---[[ bg = "#24283b",
-  bg_highlight = "#292e42",
-  terminal_black = "#414868",
-  fg = "#c0caf5",
-  fg_dark = "#a9b1d6",
-  fg_gutter = "#3b4261",
-  dark3 = "#545c7e",
-  comment = "#565f89",
-  dark5 = "#737aa2",
-  blue0 = "#3d59a1",
-  blue = "#7aa2f7",
-  cyan = "#7dcfff",
-  blue1 = "#2ac3de",
-  blue2 = "#0db9d7",
-  blue5 = "#89ddff",
-  blue6 = "#b4f9f8",
-  blue7 = "#394b70",
-  magenta = "#bb9af7",
-  magenta2 = "#ff007c",
-  purple = "#9d7cd8",
-  orange = "#ff9e64",
-  yellow = "#e0af68",
-  green = "#9ece6a",
-  green1 = "#73daca",
-  green2 = "#41a6b5",
-  teal = "#1abc9c",
-  red = "#f7768e",
-  red1 = "#db4b4b", ]]
-        end
-      })
-      vim.cmd("colorscheme tokyonight")
-    end
-  },
+  --   {
+  --     "folke/tokyonight.nvim",
+  --     opts = {},
+  --     config = function ()
+  --       require("tokyonight").setup({
+  --         -- use the night style
+  --         style = "night",
+  --         -- disable italic for functions
+  --         styles = {
+  --           functions = {}
+  --         },
+  --         sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  --         on_highlights = function(hl, c)
+  --           local prompt = "#2d3149"
+  --           hl.TelescopeNormal = {
+  --             bg = c.bg_dark,
+  --             fg = c.fg_dark,
+  --           }
+  --           hl.TelescopeBorder = {
+  --             bg = c.bg_dark,
+  --             fg = c.bg_dark,
+  --           }
+  --           hl.TelescopePromptNormal = {
+  --             bg = prompt,
+  --           }
+  --           hl.TelescopePromptBorder = {
+  --             bg = prompt,
+  --             fg = prompt,
+  --           }
+  --           hl.TelescopePromptTitle = {
+  --             bg = prompt,
+  --             fg = prompt,
+  --           }
+  --           hl.TelescopePreviewTitle = {
+  --             bg = c.bg_dark,
+  --             fg = c.bg_dark,
+  --           }
+  --           hl.TelescopeResultsTitle = {
+  --             bg = c.bg_dark,
+  --             fg = c.bg_dark,
+  --           }
+  --         end,
+  --         -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  --         on_colors = function (colors)
+  --          colors.bg = "#0C0C0C"
+  --          colors.bg_dark = "#222831"
+  --          colors.comment = "#7a8099"
+  --          colors.green1 = "#B0EBB4"
+  --          colors.blue1 = "#7BD3EA"
+  --          colors.green = "#B5C18E"
+  -- --[[ bg = "#24283b",
+  --   bg_highlight = "#292e42",
+  --   terminal_black = "#414868",
+  --   fg = "#c0caf5",
+  --   fg_dark = "#a9b1d6",
+  --   fg_gutter = "#3b4261",
+  --   dark3 = "#545c7e",
+  --   comment = "#565f89",
+  --   dark5 = "#737aa2",
+  --   blue0 = "#3d59a1",
+  --   blue = "#7aa2f7",
+  --   cyan = "#7dcfff",
+  --   blue1 = "#2ac3de",
+  --   blue2 = "#0db9d7",
+  --   blue5 = "#89ddff",
+  --   blue6 = "#b4f9f8",
+  --   blue7 = "#394b70",
+  --   magenta = "#bb9af7",
+  --   magenta2 = "#ff007c",
+  --   purple = "#9d7cd8",
+  --   orange = "#ff9e64",
+  --   yellow = "#e0af68",
+  --   green = "#9ece6a",
+  --   green1 = "#73daca",
+  --   green2 = "#41a6b5",
+  --   teal = "#1abc9c",
+  --   red = "#f7768e",
+  --   red1 = "#db4b4b", ]]
+  --         end
+  --       })
+  --       vim.cmd("colorscheme tokyonight")
+  --     end
+  --   },
+
   --   {
   --     "catppuccin/nvim",
   --     name = "catppuccin",
@@ -111,6 +112,8 @@ return {
   --     vim.cmd("colorscheme catppuccin")
   --   end
   -- },
+
+
   --[[ {
   "ellisonleao/gruvbox.nvim",
   config = function ()
@@ -163,4 +166,66 @@ return {
   vim.cmd("colorscheme dracula")
   end
   }, ]]
+  {
+    "rebelot/kanagawa.nvim",
+    name = "kanagawa",
+    config = function()
+
+      require('kanagawa').setup({
+        compile = false,             -- enable compiling the colorscheme
+        undercurl = true,            -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true},
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false,         -- do not set background color
+        dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+        colors = {                   -- add/modify theme and palette colors
+        palette = {},
+        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      },
+      overrides = function(colors) -- add/modify highlights
+        local theme = colors.theme
+        return {
+          NormalFloat = { bg = "none" },
+          FloatBorder = { bg = "none" },
+          FloatTitle = { bg = "none" },
+
+          -- Save an hlgroup with dark background and dimmed foreground
+          -- so that you can use it where your still want darker windows.
+          -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
+          NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+
+          -- Popular plugins that open floats will link to NormalFloat by default;
+          -- set their background accordingly if you wish to keep them dark and borderless
+          LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+          MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+
+          TelescopeTitle = { fg = theme.ui.special, bold = true },
+          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },  -- add `blend = vim.o.pumblend` to enable transparency
+          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+          PmenuSbar = { bg = theme.ui.bg_m1 },
+          PmenuThumb = { bg = theme.ui.bg_p2 },
+        }
+      end,
+      theme = "dragon",              -- Load "wave" theme when 'background' option is not set
+      background = {               -- map the value of 'background' option to a theme
+      dark = "dragon",           -- try "dragon" !
+      light = "lotus"
+    },
+  })
+
+  vim.cmd("colorscheme kanagawa")
+
+end
+  }
 }

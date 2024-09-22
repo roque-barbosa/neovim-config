@@ -30,7 +30,7 @@ config = function()
           ['<c-d>'] = require('telescope.actions').delete_buffer
         },
       },
-      -- layout_strategy = "vertical",
+      layout_strategy = "vertical",
       -- configure to use ripgrep
       border = {},
       -- borderchars = { ' ', ' ', ' ', ' ', '╭', '╮', '╯', '╰' },

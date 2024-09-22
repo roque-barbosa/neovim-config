@@ -17,7 +17,14 @@ return {
   },
   config = function ()
     require("mason").setup()
-    require("fidget").setup()
+    require("fidget").setup({
+
+      integration = {
+        ["nvim-tree"] = {
+          enable = false,              -- Integrate with nvim-tree/nvim-tree.lua (if installed)
+        },
+      }
+    })
     require("mason-lspconfig").setup({
       ensure_installed = {
         "rust_analyzer",

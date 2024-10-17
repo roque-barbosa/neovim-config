@@ -33,7 +33,7 @@ return {
         },
       })
     end
-  },
+  }, ]]
   {
     "rcarriga/nvim-notify",
     keys = {
@@ -58,5 +58,5 @@ return {
         vim.api.nvim_win_set_config(win, { zindex = 100 })
       end,
     },
-  } ]]
+  } 
 }

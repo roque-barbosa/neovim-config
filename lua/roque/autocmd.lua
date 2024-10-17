@@ -9,3 +9,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Set filetype for files without extension
+vim.filetype.add({
+  filename = {
+    ['Fastfile'] = 'ruby'
+  }
+})

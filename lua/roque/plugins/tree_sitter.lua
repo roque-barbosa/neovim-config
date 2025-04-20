@@ -49,12 +49,11 @@ return {
 			indent = { enable = true },
 			ensure_installed = {
 				"bash",
-				"diff",
+        "svelte",
 				"html",
 				"javascript",
 				"json",
 				"jsonc",
-				"lua",
 				"python",
 				"query",
 				"tsx",

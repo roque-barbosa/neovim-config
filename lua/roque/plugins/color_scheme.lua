@@ -1,5 +1,5 @@
 return {
-	--[[{
+	--[[ {
 		"folke/tokyonight.nvim",
 		opts = {},
 		config = function()
@@ -12,7 +12,7 @@ return {
 				},
 				sidebars = { "qf", "vista_kind", "terminal", "packer" },
 				on_highlights = function(hl, c)
-					local prompt = "#2d3149"
+					-- local prompt = "#2d3149"
 					hl.TelescopeNormal = {
 						bg = c.bg_dark,
 						fg = c.fg_dark,
@@ -22,15 +22,15 @@ return {
 						fg = c.bg_dark,
 					}
 					hl.TelescopePromptNormal = {
-						bg = prompt,
+						-- bg = prompt,
 					}
 					hl.TelescopePromptBorder = {
-						bg = prompt,
-						fg = prompt,
+						-- bg = prompt,
+						-- fg = prompt,
 					}
 					hl.TelescopePromptTitle = {
-						bg = prompt,
-						fg = prompt,
+						-- bg = prompt,
+						-- fg = prompt,
 					}
 					hl.TelescopePreviewTitle = {
 						bg = c.bg_dark,
@@ -43,9 +43,10 @@ return {
 				end,
 				-- Change the "hint" color to the "orange" color, and make the "error" color bright red
 				on_colors = function(colors)
-					colors.bg_dark = "#0C0C0C"
-					colors.bg = "#222831"
-					colors.blue = "#7BD3EA"
+
+					-- colors.bg_dark = "#11110e"
+					-- colors.bg = "#222831"
+					-- colors.blue = "#7BD3EA"
 				end,
 			})
 			vim.cmd("colorscheme tokyonight")
@@ -88,12 +89,23 @@ return {
                         require("gruvbox").setup({
                           terminal_colors = false,
                           palette_overrides = {
-                            dark0 = "#0f0f12", --sets the background
+                            dark0 = "#191A21", --sets the background
                           }
                         })
                         vim.cmd("colorscheme gruvbox")
                       end
-                    }, ]]
+                    },
+--[[ {
+      'sainnhe/everforest',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.everforest_enable_italic = true
+        vim.cmd.colorscheme('everforest')
+      end
+    } ]]
 	--[[ {
                       "Mofiqul/dracula.nvim",
                       name = "dracula",
@@ -134,7 +146,7 @@ return {
                         vim.cmd("colorscheme dracula")
                       end,
                     }, ]]
-	{
+	--[[ {
 		"rebelot/kanagawa.nvim",
 		name = "kanagawa",
 		config = function()
@@ -204,17 +216,18 @@ return {
 
 			vim.cmd("colorscheme kanagawa")
 		end,
+	}, ]]
+
+	{
+		"sainnhe/sonokai",
+		lazy = false,
+		priority = 1000,
+		style = "atlantis",
+		config = function()
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.sonokai_enable_italic = true
+			vim.cmd.colorscheme("sonokai")
+		end,
 	},
-	-- {
-	-- 	"sainnhe/sonokai",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	style = "atlantis",
-	-- 	config = function()
-	-- 		-- Optionally configure and load the colorscheme
-	-- 		-- directly inside the plugin declaration.
-	-- 		vim.g.sonokai_enable_italic = true
-	-- 		vim.cmd.colorscheme("sonokai")
-	-- 	end,
-	-- },
 }

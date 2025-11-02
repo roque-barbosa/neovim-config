@@ -1,4 +1,25 @@
 return {
+  {
+    "roque-barbosa/castelvanianigth.nvim",
+    opts = {},
+    config = function()
+      require("tokyonight").setup({
+        -- use the night style
+        style = "castlevania",
+        -- disable italic for functions
+        styles = {
+          functions = {},
+        },
+        sidebars = { "qf", "vista_kind", "terminal", "packer" },
+        on_highlights = function(hl, c)
+        end,
+        -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+        on_colors = function(colors)
+        end,
+      })
+      vim.cmd("colorscheme tokyonight")
+    end,
+  },
   --[[ {
 		"folke/tokyonight.nvim",
 		opts = {},
@@ -51,7 +72,7 @@ return {
 			})
 			vim.cmd("colorscheme tokyonight")
 		end,
-	}, ]]
+	},
 
   -- {
   -- 	"catppuccin/nvim",
@@ -292,7 +313,7 @@ return {
   --     vim.cmd("colorscheme kanagawa")
   --   end,
   -- },
-  {
+  --[[ {
     "roque-barbosa/dracu-kanagawa.nvim",
     name = "dracu-kanagawa",
     -- dir = "/Users/roquebarbosa/Documents/Study/nvim/dracu-kanagawa.nvim",
@@ -327,7 +348,7 @@ return {
       -- setup must be called before loading
       vim.cmd("colorscheme kanagawa")
     end,
-  },
+  }, ]]
   -- {
   -- 	"sainnhe/sonokai",
   -- 	lazy = false,

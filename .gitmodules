@@ -1,0 +1,6 @@
+[submodule "custom_plugins/tokyonight-castlevania"]
+	path = custom_plugins/tokyonight-castlevania
+	url = https://github.com/roque-barbosa/castelvanianigth.nvim.git
+[submodule "custom_plugins/dracu-kanagawa"]
+	path = custom_plugins/dracu-kanagawa
+	url = https://github.com/roque-barbosa/dracu-kanagawa.nvim.git

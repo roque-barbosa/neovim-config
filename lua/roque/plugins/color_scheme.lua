@@ -15,6 +15,8 @@ return {
         end,
         -- Change the "hint" color to the "orange" color, and make the "error" color bright red
         on_colors = function(colors)
+          colors.terminal_black="#708CA9"
+          colors.bg_visual="#436474"
         end,
       })
       vim.cmd("colorscheme tokyonight")

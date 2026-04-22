@@ -168,8 +168,8 @@ return {
 
 			pick.setup({
 				mappings = {
-					scroll_down = "d",
-					scroll_up = "u",
+					scroll_down = "<C-d>",
+					scroll_up = "<C-u>",
 				},
 				window = {
 					config = function()

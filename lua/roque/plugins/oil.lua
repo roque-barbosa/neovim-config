@@ -4,6 +4,9 @@ return {
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {
+			win_options = {
+				wrap = false,
+			},
 			columns = {
 				"icon",
 				"size",
@@ -38,7 +41,26 @@ return {
 			},
 			keymaps = {
 				["g?"] = { "actions.show_help", mode = "n" },
-				["<CR>"] = "actions.select",
+				["<CR>"] = function()
+					local oil = require("oil")
+					local entry = oil.get_cursor_entry()
+					if not entry then return end
+					if entry.type == "directory" then
+						oil.select()
+						return
+					end
+					local dir = oil.get_current_dir()
+					local filepath = dir .. entry.name
+					for _, win in ipairs(vim.api.nvim_list_wins()) do
+						local buf = vim.api.nvim_win_get_buf(win)
+						if vim.bo[buf].filetype ~= "oil" then
+							vim.api.nvim_set_current_win(win)
+							vim.cmd("edit " .. vim.fn.fnameescape(filepath))
+							return
+						end
+					end
+					vim.cmd("vsplit " .. vim.fn.fnameescape(filepath))
+				end,
 				["<C-s>"] = { "actions.select", opts = { vertical = true } },
 				["<C-h>"] = { "actions.select", opts = { horizontal = true } },
 				["<C-t>"] = { "actions.select", opts = { tab = true } },

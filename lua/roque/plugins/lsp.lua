@@ -5,8 +5,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"hrsh7th/cmp-buffer",
-			"j-hui/fidget.nvim",
+"j-hui/fidget.nvim",
 			"L3MON4D3/LuaSnip",
 		},
 		opts = {
@@ -252,6 +251,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "buffer", keyword_length = 3 },
 				},
 			})
 		end,

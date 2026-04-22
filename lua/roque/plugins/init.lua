@@ -13,12 +13,6 @@ return {
     config = true,
   },
   {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  },
-  {
     'NvChad/nvim-colorizer.lua',
     name = "colorizer",
     config = function()

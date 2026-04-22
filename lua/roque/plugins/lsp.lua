@@ -106,7 +106,8 @@ return {
 				-- ts_ls = {},
 				--
 
-				elixirls = {},
+				tailwindcss = {},
+			elixirls = {},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},

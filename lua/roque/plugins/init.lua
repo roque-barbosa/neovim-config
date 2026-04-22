@@ -1,5 +1,4 @@
 return {
-  { "LazyVim/LazyVim"},
   {
     "nvim-tree/nvim-web-devicons",
     name = "web-devicons",

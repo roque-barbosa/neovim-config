@@ -98,9 +98,6 @@ opt.fillchars = {
 vim.opt.foldlevel = 99
 
 
--- HACK: causes freezes on <= 0.9, so only enable on >= 0.10 for now
-
-vim.o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

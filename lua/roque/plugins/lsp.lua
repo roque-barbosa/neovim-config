@@ -132,27 +132,19 @@ return {
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			vim.lsp.config("*", { capabilities = capabilities })
+
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for ts_ls)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
+						local config = servers[server_name] or {}
+						vim.lsp.config(server_name, config)
+						vim.lsp.enable(server_name)
 					end,
 				},
 			})
 
-			require("fidget").setup({
-
-				integration = {
-					["nvim-tree"] = {
-						enable = false, -- Integrate with nvim-tree/nvim-tree.lua (if installed)
-					},
-				},
-			})
+			require("fidget").setup({})
 		end,
 	},
 
@@ -164,15 +156,6 @@ return {
 			-- Snippet Engine & its associated nvim-cmp source
 			{
 				"L3MON4D3/LuaSnip",
-				build = (function()
-					-- Build Step is needed for regex support in snippets.
-					-- This step is not supported in many windows environments.
-					-- Remove the below condition to re-enable on windows.
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
 				dependencies = {
 					-- `friendly-snippets` contains a variety of premade snippets.
 					--    See the README about individual language/framework/plugin snippets:

@@ -82,5 +82,19 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 		lazy = false,
+		init = function()
+			vim.api.nvim_create_autocmd("WinLeave", {
+				callback = function()
+					if vim.bo.filetype == "oil" then
+						local win = vim.api.nvim_get_current_win()
+						vim.schedule(function()
+							if vim.api.nvim_win_is_valid(win) then
+								vim.api.nvim_win_close(win, true)
+							end
+						end)
+					end
+				end,
+			})
+		end,
 	},
 }

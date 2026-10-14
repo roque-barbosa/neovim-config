@@ -78,7 +78,12 @@ return {
       local servers = {
         gopls = {},
         pyright = {},
-        rust_analyzer = {},
+        rust_analyzer = {
+          -- Neovim logs all server stderr as [ERROR]; rust-analyzer's WARN
+          -- chatter (e.g. "ran out of fuel while searching for a path") is
+          -- otherwise enough to grow lsp.log to gigabytes.
+          cmd_env = { RA_LOG = "error" },
+        },
         tailwindcss = {},
         expert = {}, -- Added Expert Elixir LSP
         lua_ls = {

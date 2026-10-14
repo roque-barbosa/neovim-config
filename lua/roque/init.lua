@@ -2,6 +2,7 @@ require("roque.remap")
 require("roque.autocmd")
 require("roque.set")
 require("roque.high_contrast")
+require("roque.lsp_log")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

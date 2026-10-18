@@ -1,3 +1,17 @@
+local function flutter_path()
+  if vim.fn.executable("asdf") == 1 then
+    local dir = vim.fn.trim(vim.fn.system({ "asdf", "where", "flutter" }))
+    if vim.v.shell_error == 0 and dir ~= "" then
+      return dir .. "/bin/flutter"
+    end
+  end
+
+  local manual = vim.fn.expand("~/.flutter/flutter/bin/flutter")
+  if vim.fn.executable(manual) == 1 then
+    return manual
+  end
+end
+
 return {
   -- debugger
   {
@@ -36,20 +50,20 @@ return {
     },
     config = function()
       require("flutter-tools").setup {
-        flutter_path = "/Users/roquebarbosa/.flutter/flutter/bin/flutter",
+        flutter_path = flutter_path(),
         flutter_lookup_cmd = nil,
         fvm = false,
         widget_guides = { enabled = true },
         lsp = {
           settings = {
-            showtodos = true,
-            completefunctioncalls = true,
-            analysisexcludedfolders = {
-              vim.fn.expand("$Home/.pub-cache"),
+            showTodos = true,
+            completeFunctionCalls = true,
+            analysisExcludedFolders = {
+              vim.fn.expand("$HOME/.pub-cache"),
             },
-            renamefileswithclasses = "prompt",
-            updateimportsonrename = true,
-            enablesnippets = false,
+            renameFilesWithClasses = "prompt",
+            updateImportsOnRename = true,
+            enableSnippets = false,
           },
         },
         debugger = {

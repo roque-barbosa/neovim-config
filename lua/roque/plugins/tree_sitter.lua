@@ -15,6 +15,7 @@ local parsers = {
   "eex",
   "markdown",
   "markdown_inline",
+  "dart",
 }
 
 return {
@@ -59,6 +60,7 @@ return {
           "heex",
           "eex",
           "markdown",
+          "dart",
         },
         callback = function(args)
           local lang = vim.treesitter.language.get_lang(args.match) or args.match
